@@ -30,7 +30,7 @@ const config = {
 const transporter = mailer.createTransport(config);
 
 app.use(bodyParser.json());
-app.use(cors({origin:'http://localhost:3000'}));
+app.use(cors({origin:`${process.env.APP_CORS}`}));
 
 
 
