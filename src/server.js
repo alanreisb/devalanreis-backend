@@ -49,5 +49,5 @@ app.post("/contatos/enviar", urlencodedParser, function (req, res) {
     console.log(message);
 });
 
-app.listen(process.env.PORT||3333, ()=> {console.log('Servidor iniciado no local 3333...')});
+app.listen(process.env.PORT||3333);
 
