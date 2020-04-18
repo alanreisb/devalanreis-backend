@@ -26,7 +26,7 @@ const transporter = mailer.createTransport(config)
 
 app.use(bodyParser.json())
 
-app.post('/contatos/enviar', urlencodedParser, function (req, res) {
+app.post('/api/enviar', urlencodedParser, function (req, res) {
   const message = {
     from: process.env.EMAIL,
     to: process.env.PARA,
