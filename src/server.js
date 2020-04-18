@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const mailer = require('nodemailer')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -25,8 +26,9 @@ const config = {
 const transporter = mailer.createTransport(config)
 
 app.use(bodyParser.json())
+app.use(cors({ origin: `${process.env.APP_CORS}` }))
 
-app.post('/api/enviar', urlencodedParser, function (req, res) {
+app.post('/contatos/enviar', urlencodedParser, function (req, res) {
   const message = {
     from: process.env.EMAIL,
     to: process.env.PARA,
