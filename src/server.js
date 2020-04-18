@@ -1,6 +1,5 @@
 require('dotenv').config()
 const express = require('express')
-const cors = require('cors')
 const app = express()
 const mailer = require('nodemailer')
 const bodyParser = require('body-parser')
@@ -26,7 +25,6 @@ const config = {
 const transporter = mailer.createTransport(config)
 
 app.use(bodyParser.json())
-app.use(cors({ origin: `${process.env.APP_CORS}` }))
 
 app.post('/contatos/enviar', urlencodedParser, function (req, res) {
   const message = {
