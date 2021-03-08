@@ -26,7 +26,14 @@ const config = {
 const transporter = mailer.createTransport(config)
 
 app.use(bodyParser.json())
-app.use(cors({ origin: `${process.env.APP_CORS}` }))
+app.use(
+  cors({
+    origin: [
+      'https://asilo-cp.vercel.app/',
+      'https://devalanreis.herokuapp.com/'
+    ]
+  })
+)
 
 app.post('/api/enviar', urlencodedParser, function (req, res) {
   const message = {
