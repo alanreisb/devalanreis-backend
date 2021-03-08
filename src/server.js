@@ -31,7 +31,7 @@ app.use(cors({ origin: `${process.env.APP_CORS}` }))
 app.post('/api/enviar', urlencodedParser, function (req, res) {
   const message = {
     from: process.env.EMAIL,
-    to: process.env.PARA,
+    to: req.body.destino,
     subject: 'Mensagem Portfolio: ' + req.body.nome + '---' + req.body.email,
     text: req.body.mensagem
   }
